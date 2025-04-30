@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome Page</title>
   <style>
     body {
@@ -20,37 +21,89 @@
     h1 {
       color: #333;
     }
+    .language-buttons {
+      margin-bottom: 20px;
+    }
+    .language-buttons button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
+  <script>
+    function switchLanguage(language) {
+      var elements = document.querySelectorAll('[data-lang]');
+      elements.forEach(function(element) {
+        var langKey = element.getAttribute('data-lang');
+        if (langKey) {
+          var translations = {
+            'en': {
+              'welcome': 'Welcome to my simple site!',
+              'paragliding': 'Paragliding in Spain: A Ukrainian\'s Joy',
+              'description1': 'For many Ukrainians living or visiting Spain, paragliding offers not just an adventure, but a deep breath of freedom and beauty.',
+              'description2': 'Flying over the hills and coastlines, many feel closer to home, to nature, and to themselves.',
+              'instructor': 'Meet Stas Hordiienko – Licensed Paragliding Instructor',
+              'bio': 'Stas Hordiienko is a licensed paragliding pilot with years of experience in the skies. Over the years, he has flown across Ukraine, Hungary, and the Czech Republic, building a deep understanding of safe and thrilling paragliding adventures. Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community.'
+            },
+            'es': {
+              'welcome': '¡Bienvenido a mi sitio web simple!',
+              'paragliding': 'Parapente en España: La alegría de un ucraniano',
+              'description1': 'Para muchos ucranianos que viven o visitan España, el parapente ofrece no solo una aventura, sino un respiro profundo de libertad y belleza.',
+              'description2': 'Volar sobre las colinas y costas hace que muchos se sientan más cerca de su hogar, de la naturaleza y de sí mismos.',
+              'instructor': 'Conozca a Stas Hordiienko: Instructor de parapente con licencia',
+              'bio': 'Stas Hordiienko es un piloto de parapente con licencia y años de experiencia en los cielos. A lo largo de los años, ha volado por Ucrania, Hungría y la República Checa, desarrollando una profunda comprensión de las aventuras de parapente seguras y emocionantes. Ahora, Stas lleva su pasión a España, ofreciendo vuelos inolvidables en la impresionante región de Alicante, parte de la Comunidad Valenciana.'
+            },
+            'uk': {
+              'welcome': 'Ласкаво просимо на мій простий сайт!',
+              'paragliding': 'Парапланеризм в Іспанії: Радість українця',
+              'description1': 'Для багатьох українців, які живуть чи відвідують Іспанію, парапланеризм — це не просто пригода, а глибокий подих свободи та краси.',
+              'description2': 'Летючи над пагорбами та узбережжями, багато хто відчуває себе ближче до дому, до природи і до себе.',
+              'instructor': 'Зустрічайте Станіслава Гордієнка – ліцензованого інструктора парапланеризму',
+              'bio': 'Станіслав Гордієнко — ліцензований пілот параплану з багаторічним досвідом. Протягом років він літав по Україні, Угорщині та Чехії, набуваючи глибокого розуміння безпечних та захоплюючих пригод на параплані. Тепер Станіслав приносить свою пристрасть в Іспанію, пропонуючи незабутні польоти в прекрасному регіоні Аліканте, частині Валенсійського співтовариства.'
+            }
+          };
+          if (translations[language] && translations[language][langKey]) {
+            element.textContent = translations[language][langKey];
+          }
+        }
+      });
+    }
+  </script>
 </head>
 <body>
-  <img src="welcome.png" alt="Welcome image">
-  <h1>Welcome to my simple site!</h1>
+  <div class="language-buttons">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('es')">Español</button>
+    <button onclick="switchLanguage('uk')">Українська</button>
+  </div>
 
-  <h2>Paragliding in Spain: A Ukrainian's Joy</h2>
+  <img src="welcome.png" alt="Welcome image">
+  <h1 data-lang="welcome">Welcome to my simple site!</h1>
+
+  <h2 data-lang="paragliding">Paragliding in Spain: A Ukrainian's Joy</h2>
   <img src="paraglider.jpg" alt="Paraglider in the sky" width="300">
 
-  <p>
+  <p data-lang="description1">
     For many Ukrainians living or visiting Spain, paragliding offers not just an adventure, but a deep breath of freedom and beauty.
-    The vast Spanish skies, gentle winds, and breathtaking views from above give a sense of lightness that helps leave worries behind.
   </p>
 
-  <p>
-    It's more than a sport — it's a reminder that peace and wonder still exist.
+  <p data-lang="description2">
     Flying over the hills and coastlines, many feel closer to home, to nature, and to themselves.
   </p>
 
-  <h2 style="color: darkblue;">Why Ukrainians Thrive in Alicante, Spain</h2>
-  <h2 style="color: darkblue;">Meet Stas Hordiienko – Licensed Paragliding Instructor</h2>
+  <h2 style="color: darkblue;" data-lang="instructor">Why Ukrainians Thrive in Alicante, Spain</h2>
+  <h2 style="color: darkblue;" data-lang="instructor">Meet Stas Hordiienko – Licensed Paragliding Instructor</h2>
 
   <img src="stas-paragliding.jpg" alt="Stas Hordiienko preparing for paragliding" width="400"
        style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 15px;">
 
-  <p style="max-width: 600px; line-height: 1.6; font-size: 16px; margin: auto;">
+  <p style="max-width: 600px; line-height: 1.6; font-size: 16px; margin: auto;" data-lang="bio">
     Stas Hordiienko is a licensed paragliding pilot with years of experience in the skies. Over the years, he has flown across Ukraine, Hungary, and the Czech Republic, building a deep understanding of safe and thrilling paragliding adventures.
   </p>
 
-  <p style="max-width: 600px; line-height: 1.6; font-size: 16px; margin: auto;">
-    Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community. Whether you're a beginner or an enthusiast, you now have the opportunity to soar with an experienced and certified guide.
+  <p style="max-width: 600px; line-height: 1.6; font-size: 16px; margin: auto;" data-lang="bio">
+    Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community.
   </p>
 </body>
 </html>
