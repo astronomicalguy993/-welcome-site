@@ -33,6 +33,7 @@
   </style>
   <script>
     function switchLanguage(language) {
+      console.log('Switching to language:', language);  // Печатаем в консоль
       var elements = document.querySelectorAll('[data-lang]');
       elements.forEach(function(element) {
         var langKey = element.getAttribute('data-lang');
@@ -63,7 +64,9 @@
               'bio': 'Станіслав Гордієнко — ліцензований пілот параплану з багаторічним досвідом. Протягом років він літав по Україні, Угорщині та Чехії, набуваючи глибокого розуміння безпечних та захоплюючих пригод на параплані. Тепер Станіслав приносить свою пристрасть в Іспанію, пропонуючи незабутні польоти в прекрасному регіоні Аліканте, частині Валенсійського співтовариства.'
             }
           };
+
           if (translations[language] && translations[language][langKey]) {
+            console.log('Updating text for', langKey, 'to:', translations[language][langKey]);
             element.textContent = translations[language][langKey];
           }
         }
@@ -107,4 +110,3 @@
   </p>
 </body>
 </html>
-<script src="script.js"></script>
