@@ -30,10 +30,18 @@
       font-size: 16px;
       cursor: pointer;
     }
+    .contact-block {
+      margin-top: 60px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
   <script>
     function switchLanguage(language) {
-      console.log('Switching to language:', language);  // Печатаем в консоль
       var elements = document.querySelectorAll('[data-lang]');
       elements.forEach(function(element) {
         var langKey = element.getAttribute('data-lang');
@@ -45,7 +53,10 @@
               'description1': 'For many Ukrainians living or visiting Spain, paragliding offers not just an adventure, but a deep breath of freedom and beauty.',
               'description2': 'Flying over the hills and coastlines, many feel closer to home, to nature, and to themselves.',
               'instructor': 'Meet Stas Hordiienko – Licensed Paragliding Instructor',
-              'bio': 'Stas Hordiienko is a licensed paragliding pilot with years of experience in the skies. Over the years, he has flown across Ukraine, Hungary, and the Czech Republic, building a deep understanding of safe and thrilling paragliding adventures. Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community.'
+              'bio': 'Stas Hordiienko is a licensed paragliding pilot with years of experience in the skies. Over the years, he has flown across Ukraine, Hungary, and the Czech Republic, building a deep understanding of safe and thrilling paragliding adventures. Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community.',
+              'claudia-title': 'Contact the Flight Organizer',
+              'claudia-text': '👩‍💼 <strong>Claudia</strong> is the main organizer of all flights. She welcomes clients, explains all the details, and accompanies you during the whole adventure. If you have questions or want to book a flight — contact her directly.',
+              'claudia-instagram': '📸 Instagram: '
             },
             'es': {
               'welcome': '¡Bienvenido a mi sitio web simple!',
@@ -53,7 +64,10 @@
               'description1': 'Para muchos ucranianos que viven o visitan España, el parapente ofrece no solo una aventura, sino un respiro profundo de libertad y belleza.',
               'description2': 'Volar sobre las colinas y costas hace que muchos se sientan más cerca de su hogar, de la naturaleza y de sí mismos.',
               'instructor': 'Conozca a Stas Hordiienko: Instructor de parapente con licencia',
-              'bio': 'Stas Hordiienko es un piloto de parapente con licencia y años de experiencia en los cielos. A lo largo de los años, ha volado por Ucrania, Hungría y la República Checa, desarrollando una profunda comprensión de las aventuras de parapente seguras y emocionantes. Ahora, Stas lleva su pasión a España, ofreciendo vuelos inolvidables en la impresionante región de Alicante, parte de la Comunidad Valenciana.'
+              'bio': 'Stas Hordiienko es un piloto de parapente con licencia y años de experiencia en los cielos. A lo largo de los años, ha volado por Ucrania, Hungría y la República Checa, desarrollando una profunda comprensión de las aventuras de parapente seguras y emocionantes. Ahora, Stas lleva su pasión a España, ofreciendo vuelos inolvidables en la impresionante región de Alicante, parte de la Comunidad Valenciana.',
+              'claudia-title': 'Contacto con la organizadora de vuelos',
+              'claudia-text': '👩‍💼 <strong>Claudia</strong> es la principal organizadora de todos los vuelos. Recibe a los clientes, explica todos los detalles y los acompaña durante toda la aventura. Si tienes preguntas o quieres reservar un vuelo, contáctala directamente.',
+              'claudia-instagram': '📸 Instagram: '
             },
             'uk': {
               'welcome': 'Ласкаво просимо на мій простий сайт!',
@@ -61,13 +75,15 @@
               'description1': 'Для багатьох українців, які живуть чи відвідують Іспанію, парапланеризм — це не просто пригода, а глибокий подих свободи та краси.',
               'description2': 'Летючи над пагорбами та узбережжями, багато хто відчуває себе ближче до дому, до природи і до себе.',
               'instructor': 'Зустрічайте Станіслава Гордієнка – ліцензованого інструктора парапланеризму',
-              'bio': 'Станіслав Гордієнко — ліцензований пілот параплану з багаторічним досвідом. Протягом років він літав по Україні, Угорщині та Чехії, набуваючи глибокого розуміння безпечних та захоплюючих пригод на параплані. Тепер Станіслав приносить свою пристрасть в Іспанію, пропонуючи незабутні польоти в прекрасному регіоні Аліканте, частині Валенсійського співтовариства.'
+              'bio': 'Станіслав Гордієнко — ліцензований пілот параплану з багаторічним досвідом. Протягом років він літав по Україні, Угорщині та Чехії, набуваючи глибокого розуміння безпечних та захоплюючих пригод на параплані. Тепер Станіслав приносить свою пристрасть в Іспанію, пропонуючи незабутні польоти в прекрасному регіоні Аліканте, частині Валенсійського співтовариства.',
+              'claudia-title': 'Контакт з організаторкою польотів',
+              'claudia-text': '👩‍💼 <strong>Клаудія</strong> — головна організаторка всіх польотів. Вона зустрічає клієнтів, пояснює всі деталі та супроводжує під час усієї пригоди. Якщо у вас є запитання чи бажаєте записатися на політ — звертайтесь до неї напряму.',
+              'claudia-instagram': '📸 Інстаграм: '
             }
           };
 
           if (translations[language] && translations[language][langKey]) {
-            console.log('Updating text for', langKey, 'to:', translations[language][langKey]);
-            element.textContent = translations[language][langKey];
+            element.innerHTML = translations[language][langKey];
           }
         }
       });
@@ -87,26 +103,29 @@
   <h2 data-lang="paragliding">Paragliding in Spain: A Ukrainian's Joy</h2>
   <img src="paraglider.jpg" alt="Paraglider in the sky" width="300">
 
-  <p data-lang="description1">
-    For many Ukrainians living or visiting Spain, paragliding offers not just an adventure, but a deep breath of freedom and beauty.
-  </p>
+  <p data-lang="description1">For many Ukrainians living or visiting Spain, paragliding offers not just an adventure, but a deep breath of freedom and beauty.</p>
+  <p data-lang="description2">Flying over the hills and coastlines, many feel closer to home, to nature, and to themselves.</p>
 
-  <p data-lang="description2">
-    Flying over the hills and coastlines, many feel closer to home, to nature, and to themselves.
-  </p>
-
-  <h2 style="color: darkblue;" data-lang="instructor">Why Ukrainians Thrive in Alicante, Spain</h2>
   <h2 style="color: darkblue;" data-lang="instructor">Meet Stas Hordiienko – Licensed Paragliding Instructor</h2>
 
   <img src="stas-paragliding.jpg" alt="Stas Hordiienko preparing for paragliding" width="400"
        style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin-bottom: 15px;">
 
   <p style="max-width: 600px; line-height: 1.6; font-size: 16px; margin: auto;" data-lang="bio">
-    Stas Hordiienko is a licensed paragliding pilot with years of experience in the skies. Over the years, he has flown across Ukraine, Hungary, and the Czech Republic, building a deep understanding of safe and thrilling paragliding adventures.
+    Stas Hordiienko is a licensed paragliding pilot with years of experience in the skies. Over the years, he has flown across Ukraine, Hungary, and the Czech Republic, building a deep understanding of safe and thrilling paragliding adventures. Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community.
   </p>
 
-  <p style="max-width: 600px; line-height: 1.6; font-size: 16px; margin: auto;" data-lang="bio">
-    Now, Stas brings his passion to Spain — offering unforgettable flights in the stunning region of Alicante, part of the Valencian Community.
-  </p>
+  <div class="contact-block">
+    <h2 style="color: #006400;" data-lang="claudia-title">Контакт з організаторкою польотів</h2>
+    <p data-lang="claudia-text" style="font-size: 16px; line-height: 1.6;">
+      👩‍💼 <strong>Клаудія</strong> — головна організаторка всіх польотів. Вона зустрічає клієнтів, пояснює всі деталі та супроводжує під час усієї пригоди. Якщо у вас є запитання чи бажаєте записатися на політ — звертайтесь до неї напряму.
+    </p>
+    <p style="font-size: 16px;">
+      <span data-lang="claudia-instagram">📸 Інстаграм: </span>
+      <a href="https://www.instagram.com/klaudia_adhoyoga/" target="_blank" style="color: #d6249f; font-weight: bold;">
+        @klaudia_adhoyoga
+      </a>
+    </p>
+  </div>
 </body>
 </html>
